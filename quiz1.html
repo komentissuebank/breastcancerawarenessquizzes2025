@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz 1: Breast Cancer Basics & Genetics</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .question { margin-bottom: 20px; }
+        .result { font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Quiz 1: Breast Cancer Basics & Genetics</h1>
+    <form id="quizForm1">
+        <div class="question">
+            <p>1. What percentage of breast cancer cases are not linked to family history?</p>
+            <input type="radio" name="q1" value="a"> 10%<br>
+            <input type="radio" name="q1" value="b"> 25%<br>
+            <input type="radio" name="q1" value="c"> 85%<br>
+            <input type="radio" name="q1" value="d"> 50%<br>
+        </div>
+        <div class="question">
+            <p>2. BRCA1 and BRCA2 are genes associated with:</p>
+            <input type="radio" name="q2" value="a"> Skin cancer<br>
+            <input type="radio" name="q2" value="b"> Breast and ovarian cancer<br>
+            <input type="radio" name="q2" value="c"> Lung cancer<br>
+            <input type="radio" name="q2" value="d"> Colon cancer<br>
+        </div>
+        <div class="question">
+            <p>3. What is the role of healthy breast tissue in research?</p>
+            <input type="radio" name="q3" value="a"> It is not useful<br>
+            <input type="radio" name="q3" value="b"> It helps compare normal and cancerous cells<br>
+            <input type="radio" name="q3" value="c"> It is used for cosmetic studies<br>
+            <input type="radio" name="q3" value="d"> It is used for vaccine development<br>
+        </div>
+        <div class="question">
+            <p>4. Which of the following is a hereditary breast cancer syndrome?</p>
+            <input type="radio" name="q4" value="a"> Lynch syndrome<br>
+            <input type="radio" name="q4" value="b"> Cowden syndrome<br>
+            <input type="radio" name="q4" value="c"> Peutz-Jeghers syndrome<br>
+            <input type="radio" name="q4" value="d"> All of the above<br>
+        </div>
+        <div class="question">
+            <p>5. What does genetic counseling provide?</p>
+            <input type="radio" name="q5" value="a"> Treatment options<br>
+            <input type="radio" name="q5" value="b"> Risk assessment and testing guidance<br>
+            <input type="radio" name="q5" value="c"> Insurance advice<br>
+            <input type="radio" name="q5" value="d"> Diet plans<br>
+        </div>
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </form>
+    <div class="result" id="result1"></div>
+
+    <script>
+        function calculateScore() {
+            const answers = {
+                q1: "c",
+                q2: "b",
+                q3: "b",
+                q4: "d",
+                q5: "b"
+            };
+            let score = 0;
+            for (let q in answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === answers[q]) {
+                    score++;
+                }
+            }
+            let title = "";
+            if (score <= 1) title = "Research Rookie";
+            else if (score <= 3) title = "Awareness Advocate";
+            else if (score === 4) title = "Knowledge Keeper";
+            else title = "Cure Champion";
+            document.getElementById("result1").innerText = `You scored ${score}/5. Your title: ${title}`;
+        }
+    </script>
+</body>
+</html>
