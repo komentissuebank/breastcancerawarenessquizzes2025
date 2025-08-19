@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz 4: Rare Types, Precision Medicine & Clinical Trials</title>
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const answers = ["a", "c", "b", "d", "a"];
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selected && selected.value === answers[i - 1]) {
+                    score++;
+                }
+            }
+            let result = "";
+            if (score <= 1) result = "🏅 Research Rookie";
+            else if (score <= 3) result = "🎗️ Awareness Advocate";
+            else if (score === 4) result = "📘 Knowledge Keeper";
+            else result = "🏆 Cure Champion";
+            document.getElementById("result").innerText = "You scored " + score + "/5. Your title: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Quiz 4: Rare Types, Precision Medicine & Clinical Trials</h1>
+    <form>
+        <p>1. What is inflammatory breast cancer?</p>
+        <label><input type="radio" name="q1" value="a"> A rare and aggressive form of breast cancer</label><br>
+        <label><input type="radio" name="q1" value="b"> A benign condition</label><br>
+        <label><input type="radio" name="q1" value="c"> A type of skin cancer</label><br>
+        <label><input type="radio" name="q1" value="d"> A hormonal disorder</label><br>
+
+        <p>2. Precision medicine involves:</p>
+        <label><input type="radio" name="q2" value="a"> Standardized treatments</label><br>
+        <label><input type="radio" name="q2" value="b"> Radiation therapy</label><br>
+        <label><input type="radio" name="q2" value="c"> Tailoring treatment to individual genetic profiles</label><br>
+        <label><input type="radio" name="q2" value="d"> Surgery</label><br>
+
+        <p>3. What is the purpose of a Phase I clinical trial?</p>
+        <label><input type="radio" name="q3" value="a"> Compare treatments</label><br>
+        <label><input type="radio" name="q3" value="b"> Test safety and dosage</label><br>
+        <label><input type="radio" name="q3" value="c"> Evaluate effectiveness</label><br>
+        <label><input type="radio" name="q3" value="d"> Monitor long-term effects</label><br>
+
+        <p>4. Triple-negative breast cancer lacks which receptors?</p>
+        <label><input type="radio" name="q4" value="a"> HER2 only</label><br>
+        <label><input type="radio" name="q4" value="b"> Estrogen only</label><br>
+        <label><input type="radio" name="q4" value="c"> Progesterone only</label><br>
+        <label><input type="radio" name="q4" value="d"> All three: estrogen, progesterone, and HER2</label><br>
+
+        <p>5. Which organization often sponsors breast cancer clinical trials?</p>
+        <label><input type="radio" name="q5" value="a"> National Cancer Institute</label><br>
+        <label><input type="radio" name="q5" value="b"> World Health Organization</label><br>
+        <label><input type="radio" name="q5" value="c"> Centers for Disease Control</label><br>
+        <label><input type="radio" name="q5" value="d"> American Heart Association</label><br>
+    </form>
+    <button onclick="calculateScore()">Submit</button>
+    <p id="result"></p>
+</body>
+</html>
