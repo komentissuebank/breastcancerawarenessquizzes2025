@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz 3: Cancer Biology & Lifestyle Factors</title>
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const answers = ["c", "d", "a", "b", "a"];
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selected && selected.value === answers[i - 1]) {
+                    score++;
+                }
+            }
+            let result = "";
+            if (score <= 1) result = "🏅 Research Rookie";
+            else if (score <= 3) result = "🎗️ Awareness Advocate";
+            else if (score === 4) result = "📘 Knowledge Keeper";
+            else result = "🏆 Cure Champion";
+            document.getElementById("result").innerText = "You scored " + score + "/5. Your title: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Quiz 3: Cancer Biology & Lifestyle Factors</h1>
+    <form>
+        <p>1. What is apoptosis?</p>
+        <label><input type="radio" name="q1" value="a"> Cell division</label><br>
+        <label><input type="radio" name="q1" value="b"> DNA replication</label><br>
+        <label><input type="radio" name="q1" value="c"> Programmed cell death</label><br>
+        <label><input type="radio" name="q1" value="d"> Tumor growth</label><br>
+
+        <p>2. Which lifestyle factor is most associated with increased breast cancer risk?</p>
+        <label><input type="radio" name="q2" value="a"> High protein diet</label><br>
+        <label><input type="radio" name="q2" value="b"> Regular exercise</label><br>
+        <label><input type="radio" name="q2" value="c"> Low-fat diet</label><br>
+        <label><input type="radio" name="q2" value="d"> Alcohol consumption</label><br>
+
+        <p>3. BRCA1 and BRCA2 are:</p>
+        <label><input type="radio" name="q3" value="a"> Tumor suppressor genes</label><br>
+        <label><input type="radio" name="q3" value="b"> Chemotherapy drugs</label><br>
+        <label><input type="radio" name="q3" value="c"> Hormones</label><br>
+        <label><input type="radio" name="q3" value="d"> Imaging techniques</label><br>
+
+        <p>4. Which vitamin is being studied for its role in breast cancer prevention?</p>
+        <label><input type="radio" name="q4" value="a"> Vitamin C</label><br>
+        <label><input type="radio" name="q4" value="b"> Vitamin D</label><br>
+        <label><input type="radio" name="q4" value="c"> Vitamin B12</label><br>
+        <label><input type="radio" name="q4" value="d"> Vitamin A</label><br>
+
+        <p>5. What is a carcinogen?</p>
+        <label><input type="radio" name="q5" value="a"> A substance that causes cancer</label><br>
+        <label><input type="radio" name="q5" value="b"> A type of tumor</label><br>
+        <label><input type="radio" name="q5" value="c"> A genetic mutation</label><br>
+        <label><input type="radio" name="q5" value="d"> A cancer treatment</label><br>
+    </form>
+    <button onclick="calculateScore()">Submit</button>
+    <p id="result"></p>
+</body>
+</html>
